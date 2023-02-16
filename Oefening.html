@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p>Geef je leeftijd en klik op de knop:</p>
+    <input id="ouderdom" value="18">
+    <button onclick="checkFunction1()">Check</button>
+    <p id="boodschap"></p>
+
+
+    <script type="text/javascript">
+
+        "use strict"
+
+        //Datatypes
+
+        let name = "Ana";
+        let leeftijd = 41;
+        let partner = true;
+
+        console.log(typeof name);
+        console.log(typeof leeftijd);
+        console.log(typeof partner);
+
+        let gegevens = ["Ana", 41, true];
+
+        let lengte = gegevens.length;
+        for (let i = 0; i < lengte; i++) {
+            console.log(typeof gegevens[i]);
+        }
+
+        //Hoisting
+
+        naam = "JavaScript";
+        console.log(naam);
+        var naam; //ES5
+
+        //function declaration
+        console.log(som(4, 2));//6
+        function som(x, y) {
+            return x + y;
+        }
+
+        //function expression
+
+        //console.log(mijnSom(2, 4));//ReferenceError = Console não pode vir antes da função
+        let mijnSom = function (x, y) {
+            return x + y;
+        };
+        console.log(mijnSom(2, 4));//6
+
+
+        //Argumenten
+
+        function functieMetTweeArgumenten(a, b) {
+            console.log(`a: ${a}`);
+            console.log(`b: ${b}`);
+            console.log(`Er zijn ${arguments.length} arguments doorgegeven.`);//Er zijn 4 arguments doorgegeven. Arguments vai sempre devolver a totalidade de itemns na array
+
+            let lengte = arguments.length;
+            for (let i = 0; i < lengte; i++) {
+                console.log(`argument ${i} = ${arguments[i]}`);
+            }
+        }
+
+        functieMetTweeArgumenten(5, 8, 4, 2);
+
+        //Opdracht
+        function som(...cijfers) {
+            var totaal = 0;
+            for (let cijfer of cijfers) totaal += cijfer; {
+                console.log(totaal);
+            }
+        }
+        som(0, 20, 5);
+
+
+        // Voorbeeld groet
+
+        let now = new Date();//opvragen van datum/tijd via pc klok
+        let greeting = "Goeie";
+        if (now.getHours() > 17) {
+            greeting += " avond.";
+        }
+        else {
+            greeting += " dag.";
+        }
+        alert(greeting);
+
+        //wordt
+        let now2 = new Date();
+        let greeting2 = "Goeie" + ((now2.getHours() > 17) ? " avond." : " dag."); // Faz a pergunta, se é verdade retribui o primeiro valor, se é falso retribui o segundo "? :"
+        alert(greeting2);
+
+
+        // Voorbeeld ouderdom
+
+        /*
+    function checkFunction1() {
+        let ouderdom, magKiezen;
+        ouderdom = document.getElementById("ouderdom").value;
+        if (ouderdom < 18) {
+            magKiezen = "Te jong";
+        }
+        else {
+            magKiezen = "Oud genoeg";
+        }
+        document.getElementById("boodschap").innerHTML = magKiezen + " om te stemmen.";
+    } */
+
+        //Met ternary
+        function checkFunction1() {
+            let ouderdom, magKiezen;
+            ouderdom = document.getElementById("ouderdom").value;
+            magKiezen = (ouderdom < 18) ? "Te jong" : "Oud genoeg";
+            document.getElementById("boodschap").innerHTML = magKiezen + " om te stemmen.";
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p>De default verzendkosten worden berekend voor een verzendig binnen Bëlgie.<br>
+        Indien u buiten Bëlgie wont, maar nog altijd in Europa dient u dit<br>
+        hieronder aan te geven. Verzendingen buiten Europe doen we niet.
+    </p>
+
+    <input type="checkbox" id="verzendingskosten" name="checkbox" value="10">
+    <label for="checkbox">Binnen Bëlgie</label>
+
+    <p></p>
+    <button onclick="berekenVerzendingsKost()">Bereken verzendingskost</button>
+    <p id="boodschap"></p>
+
+    <p>De default verzendkosten worden berekend voor een verzendig binnen Bëlgie.<br>
+        Indien u buiten Bëlgie wont, maar nog altijd in Europa dient u dit<br>
+        hieronder aan te geven. Verzendingen buiten Europe doen we niet.
+    </p>
+
+    <input type="checkbox" id="verzendingskosten" name="checkbox" value="15">
+    <label for="checkbox">Buiten Bëlgie, maar binnen Europa</label>
+
+    <p></p>
+    <button onclick="berekenVerzendingsKost()">Bereken verzendingskost</button>
+    <p id="boodschap"></p>
+
+
+    <script type="text/javascript">
+
+        function berekenVerzendingsKost() {
+            let verzendingsText, verzendingsKost;
+            verzendingsKost = document.getElementById("verzendingskosten").value;
+            verzendingsText = (verzendingsKost == 10) ? "U woont binnen Bëlgie en betaalt de verzendigskost:10 euro." :
+                "U woont buiten Bëlgie, maar nog binnen Europa en betaalt de verzendigskost:15 euro.";
+            document.getElementById("boodschap").innerHTML = verzendingsText;
+        }
+
+    </script>
+</body>
+
+</html>
