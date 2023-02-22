@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Welkom</h1>
+    <a href="http://www.google.be">click mij</a>
+    <p class="vet" id="eersteP">Welkom op mijn <strong>site</strong>. </p>
+    <p>Hier vind je alle informatie over mij.</p>
+    <a href="http://www.hbvl.be">www.hbvl.be</a>
+    <p class="vet">En nog een vette tekst.</p>
+
+
+    <div id="content">
+        <h2>Links op mijn site</h2>
+        <p><a class="contentLinks" href="cv.html">Bekijk mijn <strong>CV</strong>.</a></p>
+        <p><a class="contentLinks" href="portfolio.html">Wil je mijn <strong>portfolio</strong> eens zien?</a></p>
+
+    </div>
+
+
+</body>
+<script>
+    "use strict";
+
+    //** getAttribute() -- Vraagt een bepaald attribuut op van een selectie
+
+    let klasse = document.getElementById("eersteP").getAttribute("class");
+    console.log(klasse);
+    //vet
+
+    //Vraag een bepaald attribuut op van een eerste element uit een selectie
+
+    let doelVanEersteA = document.getElementsByTagName('a')[0].getAttribute("target");
+    console.log(doelVanEersteA);
+    //null
+
+
+    //** setAttribute()
+
+    /* Stel een bepaald attribuut in op een bepaalde waarde, dus er zijn 2 instellingen
+    Bedoeling is om het attribuut tijdens de code uitvoering toe te passen, niet als de webpagina 
+    ingelezen wordt. Dus bv. bij een click of als er een fout optreedt. */
+
+    document.getElementsByTagName("h1")[0].setAttribute("class", "groen");
+    document.getElementById("eersteP").setAttribute("class", "groen");
+
+    //Stel de target van de eerste hyperlink in op _blank: openen in een nieuw tabblad
+
+    document.getElementsByTagName('a')[0].setAttribute("target", "_blank");
+
+    //Log het ingestelde attribuut 
+
+    console.log(document.getElementsByTagName('a')[0].getAttribute("target"));
+    //_blank
+
+
+    // **removeAttribute() -- Verwijdert een bepaald attribuut 
+
+    document.getElementsByTagName("p")[0].removeAttribute("class");
+
+</script>
+
+</html>

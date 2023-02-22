@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .groen {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Welkom</h1>
+    <a href="http://www.google.be">click mij</a>
+    <p class="vet, groen" id="eersteP">Welkom op mijn <strong>site</strong>. </p>
+    <p id="info" style="color:green">Hier vind je alle informatie over mij.</p>
+    <a href="http://www.hbvl.be">www.hbvl.be</a>
+    <p class="vet">En nog een vette tekst.</p>
+
+
+    <div id="content">
+        <h2>Links op mijn site</h2>
+        <p><a class="contentLinks" href="cv.html">Bekijk mijn <strong>CV</strong>.</a></p>
+        <p><a class="contentLinks" href="portfolio.html">Wil je mijn <strong>portfolio</strong> eens zien?</a></p>
+
+
+    </div>
+
+
+</body>
+<script>
+    "use strict";
+
+    //** Inline gedefinieerde style opvragen
+    let kleur1 = document.getElementById("info").style.color;
+    console.log(`kleur1: ${kleur1}`);
+    //kleur1: green
+
+    //** Later toegekende Style: getComputedStyle()
+    let kleur2 = window.getComputedStyle(document.getElementById("eersteP")).color;
+    console.log(`kleur2: ${kleur2}`);
+    //kleur2: rgb(0, 128, 0)
+
+    //** Style instellen
+    document.getElementById("eersteP").style.color = "red";
+
+    //** Oefening 1 
+
+    document.getElementsByClassName("contentLinks")[0].style.color = "green";
+
+
+</script>
+
+</html>

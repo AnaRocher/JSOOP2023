@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .groen {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <body>
+        <h1>Welkom</h1><a href="http://www.google.be">click mij</a>
+        <p id="eersteP" class="vet">Welkom op mijn <strong>site</strong>.</p>
+        <p>Hier vind je alle informatie over mij.</p><a href="http://www.hbvl.be">www.hbvl.be</a>
+        <p class="vet">En nog een vette tekst.</p>
+
+
+        <div id="content">
+            <h2>Links op mijn site</h2>
+            <p><a class="contentLinks" href="cv.html">Bekijk mijn <strong>CV</strong>.</a></p>
+            <p><a class="contentLinks" href="portfolio.html">Wil je mijn <strong>portfolio</strong> eens zien?</a></p>
+
+        </div>
+
+        <ul id="mijnUlId">
+            <li>lijstItem1</li>
+            <li>lijstItem2</li>
+            <li>lijstItem3</li>
+        </ul>
+
+        <button>knop1</button>
+        <button>knop2</button>
+        <button>knop3</button>
+
+
+    </body>
+    <script>
+        "use strict";
+
+        //** Whitespace nodes
+        //** childNodes
+
+        let childNodes = document.body.childNodes
+        for (let i = 0; i < childNodes.length; i++) {
+            console.log(childNodes[i])
+        }
+
+        //** html zonder whitespace
+
+        let childNodes2 = document.body.childNodes
+        for (let i = 0; i < childNodes2.length; i++) {
+            console.log(childNodes2[i])
+        }
+
+        //** children
+
+        let children = document.body.children;
+        console.log(children);
+        for (let i = 0; i < children.length; i++) {
+            console.log(children[i])
+        }
+        //h1 t.e.m. script
+
+
+        //** Element node toevoegen: appendchild
+
+        let nieuweLi = document.createElement("li");
+        let liTekst = document.createTextNode("lijstItem4");
+        nieuweLi.appendChild(liTekst);
+
+        let ulOpvragen = document.getElementById("mijnUlId");
+        ulOpvragen.appendChild(nieuweLi);
+
+        //** Element node toevoegen: insertBefore	
+
+        let nieuweKnop = document.createElement("button");
+        let textnode = document.createTextNode("knop0");
+        nieuweKnop.appendChild(textnode);
+
+        //alle knoppen opvragen en nieuweKnop voor de [0] knop toevoegen
+        let knoppen = document.body.getElementsByTagName("button");
+        console.log(knoppen);
+        //initieel kan de console tonen dat er 3 knoppen zijn, bij het openklikken wordt dit automatisch geherevalueerd, zodat er 4 knoppen getoond worden
+        document.body.insertBefore(nieuweKnop, knoppen[0]);
+
+        /*de enter die normaal in de body gezet wordt is er niet, en de knop heeft een andere afstand tot de tweede knop als de rest van de knoppen 
+voeg daarom nog een enter toe: */
+
+        let legeTekst = document.createTextNode("\n");
+        document.body.insertBefore(legeTekst, knoppen[1]);
+
+        //** InsertBefore voorbeeld 2
+
+        let nieuweLis = document.createElement("li");
+        let lisTekst = document.createTextNode("lijstItem1.5");
+        nieuweLis.appendChild(lisTekst);
+
+        let ulOpvragen2 = document.getElementById("mijnUlId");
+
+        ulOpvragen.insertBefore(nieuweLis, ulOpvragen2.children[1]);
+
+        //**removeChild()
+
+        /*  let parent = document.body;
+            let child = document.getElementById("eersteP");
+            parent.removeChild(child); */
+
+        // of in 1 keer geschreven:
+
+        document.body.removeChild(document.getElementById("eersteP"));
+
+    </script>
+
+</html>

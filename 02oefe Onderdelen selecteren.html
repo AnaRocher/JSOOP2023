@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Welkom</h1>
+    <a href="http://www.google.be">click mij</a>
+    <p class="vet" id="eersteP">Welkom op mijn <strong>site</strong>. </p>
+    <p>Hier vind je alle informatie over mij.</p>
+    <a href="http://www.hbvl.be">www.hbvl.be</a>
+    <p class="vet">En nog een vette tekst.</p>
+
+
+
+    <!-- ** Oefening 2 **-->
+    <div id="content">
+        <h2>Links op mijn site</h2>
+        <p><a class="contentLinks" href="cv.html">Bekijk mijn <strong>CV</strong>.</a></p>
+        <p><a class="contentLinks" href="portfolio.html">Wil je mijn <strong>portfolio</strong> eens zien?</a></p>
+
+    </div>
+
+</body>
+<script>
+    "use strict";
+
+    let alleLinks = document.getElementsByTagName("a");
+    let lengte = alleLinks.length;
+    for (let i = 0; i < lengte; i++) {
+        console.log(alleLinks[i].innerHTML);
+    }
+
+    //***getElementById -- selecteer 1 element via zijn id
+
+    let paragraaf = document.getElementById("eersteP");
+    console.log(paragraaf);
+    //<p id="eersteP">…</p>
+
+    //***innerHTML 
+    //Vraag de html die in een bepaalde selectie staat op
+
+    console.log(paragraaf.innerHTML);
+    //Welkom op mijn <strong>site</strong>.
+    //**bevat ook de html tags binnenin de p
+
+    //***innerText
+    //Vraag de tekst die in een bepaalde selectie staat op
+
+    console.log(paragraaf.innerText);
+    //Welkom op mijn site.
+
+
+    // **Oefening 2 **
+
+    /* Log het volgende	content:
+    innerHTML van content
+    innerText van content */
+
+    let content = document.getElementById("content");
+    console.log(content);
+    console.log(content.innerHTML);
+    console.log(content.innerText);
+    /* também pode ser feito assim:
+    console.log(document.getElementById("content"));
+    console.log(document.getElementById("content").innerHTML);
+    console.log(document.getElementById("content").innerText);
+    */
+
+    //**getElementsByClassName
+
+    let vetClass = document.getElementsByClassName("vet");
+    console.log(vetClass);//HTMLCollection
+
+    //1 bepaald element
+    let vetClass2 = document.getElementsByClassName("vet")[1];
+    console.log(vetClass2);
+    //<p class="vet">En nog een vette tekst.</p>
+
+    //Vraag een attribuut van 1 element op
+
+    console.log(vetClass2.innerText);
+    //En nog een vette tekst.
+
+    // **Oefening 3 Selecteer al de elementen met de contentLinks class en log hun tekst.
+
+    let contentLinks = document.getElementsByClassName("contentLinks");
+    let lengte2 = contentLinks.length;
+    for (let i = 0; i < lengte2; i++) {
+        console.log(contentLinks[i].innerText);
+    }
+
+    //** querySelector
+    /* Selecteer het EERSTE element met een bepaalde CSS selector:
+    id, class names, types, attributes, values of attributes, >, +, 
+    :hover, nth-child etc
+ */
+
+    let eersteElementMetClass = document.querySelector(".vet");
+    console.log(eersteElementMetClass);
+    //<p id="eersteP" class="vet">Welkom op mijn <strong>site</strong>.</p>
+
+
+    //** querySelectorAll --  Selecteer ALLE voorkomens
+
+    let alleElementenMetClass = document.querySelectorAll(".vet");
+    console.log(alleElementenMetClass);//nodeList
+
+
+</script>
+
+</html>
