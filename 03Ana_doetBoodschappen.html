@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    "use strict";
+
+    let boodschappen = [
+        ["bruin boerenbrood", 2, "besteld"],
+        ["bio halfvolle melk", 1, "besteld"],
+        ["plat water", 6, "besteld"]
+    ];
+
+    let newValue = ["geleverd", "nabesteld", "geleverd"];
+
+
+    for (let i = 0; i < boodschappen.length; i++) {
+        for (let j = 0; j < boodschappen[i].length; j++) {
+            if (typeof boodschappen[i][j] === "string" && boodschappen[i][j].includes("besteld")) {
+                boodschappen[i][j] = boodschappen[i][j].replace("besteld", newValue[i]);
+            }
+        }
+    }
+
+    let inhoud = ["400g", "1l", "1,5l"];
+
+    inhoud.forEach((boodschap, index) => {
+        boodschappen.forEach((row, rowIndex) => {
+            if (rowIndex === index) {
+                row.splice(2, 0, boodschap);
+            }
+        });
+    });
+
+    console.log(`${boodschappen[0][0]} - aantal: ${boodschappen[0][1]} - inhoud: ${inhoud[0]} - status: ${newValue[0]}`)
+    console.log(`${boodschappen[1][0]} - aantal: ${boodschappen[1][1]} - inhoud: ${inhoud[1]} - status: ${newValue[1]}`)
+    console.log(`${boodschappen[2][0]} - aantal: ${boodschappen[2][1]} - inhoud: ${inhoud[2]} - status: ${newValue[2]}`)
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    "use strict";
+
+    let designVakken = ["HTML&CSS", "Photoshop", "Interface", "Drupal"];
+    console.log(designVakken);
+
+    let ontwikkelingVakken = ["Workflows", "Javascript", "jQuery", "PHP"];
+    console.log(ontwikkelingVakken);
+
+    let alleVakken = designVakken.concat(ontwikkelingVakken);
+    console.log(alleVakken);
+    //Resultaat is dus: "HTML&CSS", "Photoshop", "Interface", "Drupal", "Workflows", "Javascript", "jQuery", "PHP"
+
+    let puurProgrammeren = ontwikkelingVakken.slice(1);
+    console.log(puurProgrammeren);
+    //Resultaat is dus: "Javascript", "jQuery", "PHP"
+
+    let afdelingVakken = alleVakken.map(function (vakken) {
+        return "FeDev - " + vakken;
+    });
+    console.log(afdelingVakken);
+    //Resultaat: "FeDev - HTML&CSS", "FeDev - Photoshop", "FeDev - Interface", "FeDev -Drupal", "FeDev -Workflows", "FeDev -Javascript", "FeDev -jQuery", "FeDev -PHP"
+
+    ontwikkelingVakken.splice(4, 5, "JS-OOP", "PHP-OOP");
+    console.log(`${ontwikkelingVakken}`);
+
+    alleVakken.push("JS-OOP", "PHP-OOP");
+    console.log(alleVakken);
+
+    alleVakken.unshift("Illustrator");
+    console.log(alleVakken);
+
+    alleVakken.shift("Illustrator");
+    console.log(alleVakken);
+
+    function telVakken(totaal, vakken) {
+        return totaal + 1;
+    }
+
+    let totaalVakken = alleVakken.reduce(telVakken, 0);
+    console.log(totaalVakken);
+
+    let punten = [87, 93, 75, 81, 74, 85, 92, 91, 67, 65];
+    console.log(punten);
+
+    let vakkenEnPunten = alleVakken.reduce((acc, currentValue, index) => {
+        return acc.concat(currentValue, punten[index]);
+    }, []);
+    console.log(vakkenEnPunten);
+    //Resultaat is dus bv. HTML&CSS 87 - Photoshop 93 - Interface 75 - Drupal 81 - Workflows 74 - Javascript 85 - jQuery 92...
+
+</script>
+
+</html>

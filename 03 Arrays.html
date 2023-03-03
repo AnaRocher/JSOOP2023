@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    "use strict";
+
+    //** concat()
+    let myArray = [1, 2];
+    let myNewArray = myArray.concat(3);
+    console.log(myNewArray);
+    //Array(3) [ 1, 2, 3 ]
+
+    let myNewArray2 = myArray.concat(3, 4, "Jan");
+    console.log(myNewArray2);
+    //Array(5) [ 1, 2, 3, 4, "Jan" ]
+
+    //** Een array toevoegen
+
+    let myNewArray3 = myArray.concat([5, 6, 7]);
+    console.log(myNewArray3);
+    //Array(5) [ 1, 2, 5, 6, 7 ]
+
+    //myArray verandert niet
+    console.log(myArray);
+    //Array [ 1, 2 ]
+
+    //Je kan ook de bestaande array aanpassen
+    let yourArray = [1, 2];
+    yourArray = yourArray.concat(3);
+    console.log(yourArray);
+    //Array(3) [ 1, 2, 3 ]
+
+
+    //** slice()
+
+    let myArray1 = ["Jan", "Piet", "Joris", "korneel"];
+    let myNewArray1 = myArray1.slice(1, 3);
+    console.log(myNewArray1);
+
+    //myArray verandert niet
+    console.log(myArray1);
+
+    //wordt ook gebruikt om snel een kopie te maken van een array, in dat geval geef je geen parameters aan
+    //let kopie = myArray;//werkt niet!
+    let kopie = myArray1.slice();
+    console.log(kopie);
+
+
+    //** map()
+
+    /*
+    array.map(function(huidigeWaarde, index, array), thisWaarde)
+    huidigeWaarde: huidige waarde uit array die behandeld wordt
+        vgl. met array[i] in een for lus
+    index: index van huidige waarde uit array die behandeld wordt (optioneel)
+        vgl. met i in een for lus
+    array: het array object waartoe de waarde behoort (optioneel)
+    thisWaarde: indien een andere waarde dan de normale waarde van this moet gebruikt worden, kan die meegestuurd worden (optioneel) 
+    */
+
+    //Met for lus
+    let myArray2 = [1, 2, 3, 4];
+    let myNewArray4 = [];
+    for (let i = 0; i < myArray2.length; i++) {
+        myNewArray4[i] = myArray2[i] * 3;
+    }
+    console.log(myNewArray4);
+
+
+    let myArray3 = [1, 2, 3, 4];
+    let myNewArray5 = myArray3.map(function (huidigeWaarde) {
+        return huidigeWaarde * 3
+    });
+    console.log(myNewArray5);
+
+
+    //myArray verandert niet
+    console.log(myArray2);
+
+
+    //** splice()
+
+    /* Voegt items toe en/of verwijdert ze uit een array
+    Oorspronkelijke array verandert WEL
+    array.splice(index, hoeveel, item1, ....., itemX)
+    index: positie waarop toevoegen/verwijderen moet beginnen
+    hoeveel: hoeveel items verwijderen (optioneel)
+    item1... : toe te voegen items (optioneel)
+
+    Splice heeft ook een return waarde indien het gebruikt 
+    wordt om te verwijderen: nl. hetgeen verwijderd is*/
+
+    //** Verwijderen
+
+    let myArray4 = [1, 2, 3, 4];
+    myArray4.splice(2, 2);
+    console.log(`myArray: ${myArray4}`)
+
+
+    //Return waarde
+    let myArray5 = ["a", "b", "c", "d"];
+    let returnWaarde = myArray5.splice(2, 2);
+    console.log(`returnWaarde: ${returnWaarde}`);
+    console.log(`myArray2: ${myArray5}`);
+
+    /*Als je geen variabele definieert om de return
+    waarde in op te vangen, wordt die return waarde toch 
+    automatisch aangemaakt in het geheugen, maar er gebeurt 
+    niets mee*/
+
+    //** Toevoegen
+
+    myArray5.splice(1, 0, "e", "f");
+    console.log(`myArray:  ${myArray5}`);
+
+
+    //** Verwijderen en toevoegen tegelijk
+
+    let myArray6 = ["Jan", "Piet", "Joris"];
+    myArray6.splice(1, 1, "An");
+    console.log(myArray6);
+
+
+    //** push()
+
+    //1 of meer elementen toevoegen achteraan de array
+    //Return waarde is de nieuwe lengte van de array
+
+    let weekdagen = ["maandag"];
+    weekdagen.push("dinsdag");
+    let returnWaarde1 = weekdagen.push("woensdag");
+    //de push wordt gewoon uitgevoerd, maar de return waarde wordt in de variabele returnWaarde geplaatst
+    console.log(returnWaarde1);//returnt 3
+    console.log(weekdagen);//maandag, dinsdag, woensdag
+    console.log(weekdagen.length);//3
+
+
+    //** pop()
+
+    /* Verwijder het laatste element achteraan de array
+    Return waarde is het verwijderde element
+    De eerste console.log() hieronder toont de 
+    returnwaarde, dus i.p.v. eerst de returnwaarde 
+    in een var te steken en dan die var te loggen. 
+    De pop op zich wordt gewoon uitgevoerd.
+*/
+
+    console.log(weekdagen.pop());//woensdag
+    console.log(weekdagen);//maandag, dinsdag
+
+
+    //** shift()
+
+    //Verwijder het eerste element uit een array, alle andere schuiven naar voor
+    //Return waarde: verwijderde element
+
+    let dagen = ["maandag", "dinsdag", "woensdag", "donderdag"];
+    console.log(dagen.shift());//maandag
+    console.log(dagen.shift());//dinsdag
+    console.log(dagen);//woensdag, donderdag
+
+
+    //** unshift()
+
+    //Voegt 1 of meer elementen toe aan het begin van een array
+    //Return waarde is de nieuwe lengte
+
+    console.log(dagen.unshift("maandag", "dinsdag"));
+    console.log(dagen)//maandag, dinsdag, woensdag, donderdag
+
+
+    //** reduce()
+
+    /* Brengt al de waardes van een array terug tot 1 waarde, het resultaat/totaal
+    Letterlijk vertaald: herleidt tot
+    Past de array niet aan
+    Via extra functie wordt gedefinieerd wat er met waardes moet gebeuren
+    */
+
+    //Vergelijk met een for lus om alle waardes van een array op te tellen
+    let myArray7 = [1, 2, 3, 4];
+    let som = 0;
+    let lengte = myArray7.length;
+    for (let i = 0; i < lengte; i++) {
+        som += myArray7[i];
+    }
+    console.log(`som: ${som}`);
+
+    //** reduce()
+
+    /*array.reduce(function(totaal, huidigeWaarde, huidigeIndex, array), initiëleWaarde)
+    totaal: initiële waarde of de vorige gereturnde waarde van de functie (vereist)
+    huidigeWaarde: waarde van het huidige element uit de array (vereist)
+    huidigeIndex : index van het huidig element (optioneel)
+    array: de array waartoe het huidige element behoort (optioneel)
+    initiëleWaarde: waarde die doorgegeven wordt bij starten van functie (optioneel)
+
+    Standaard is totaal bij het starten van functie de eerste waarde uit de array
+ */
+
+    //** Voorbeeld 1
+
+    let myArray8 = [1, 2, 3, 4];
+
+    function telOp(totaal, huidigeWaarde) {
+        console.log(`${totaal} - ${huidigeWaarde}`)
+        return totaal + huidigeWaarde;
+    }
+
+    let totaal = myArray8.reduce(telOp);
+    console.log(`totaal: ${totaal}`);//10
+    console.log(`myArray: ${myArray8}`);//1,2,3,4
+
+
+    //** Voorbeeld 2
+
+    let myArray9 = ["a", "b", "c", "d"];
+
+    function telOp(totaal, huidigeWaarde) {
+        console.log(`${totaal} - ${huidigeWaarde}`);
+        return totaal + huidigeWaarde;
+    }
+
+    let totaal1 = myArray9.reduce(telOp);
+    console.log(`totaal: ${totaal1}`);
+    console.log(`myArray: ${myArray9}`);
+
+
+    //** Voorbeeld 3
+
+    let myArray10 = [1, 2, 3, 4];
+    let vermenigvuldig = myArray10.reduce(function vermenigvuldig(totaal, huidigeWaarde) {
+        console.log(`${totaal} - ${huidigeWaarde}`);
+        return totaal * huidigeWaarde;
+    });
+
+    console.log(`vermenigvuldig: ${vermenigvuldig}`);//24
+    console.log(`myArray2: ${myArray10}`);//1,2,3,4
+
+
+    //** Voorbeeld 4
+
+    /*We maken een nieuwe var totaalAantalMaanden.
+    Via reduce moet die het totaal aantal maanden bevatten van totaleJaar, dus 12
+    Gebruik de initiële waarde 0 */
+
+    let totaleJaar = ["januari", "februari", "maart", "april", "mei", "juni", "juli", "augustus", "september", "oktober", "november", "december"];
+
+    function telMaanden(totaal, maanden) {
+        return totaal + 1;
+    }
+
+    let totaalAantalMaanden = totaleJaar.reduce(telMaanden, 0);
+    console.log(totaalAantalMaanden);
+
+
+</script>
+
+</html>

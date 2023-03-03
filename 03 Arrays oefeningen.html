@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    "use strict";
+
+    //** concat()
+
+    /*Maak 2 arrays aan: semester1 en semester2
+    Beide bevatten respectievelijk de eerste 6 en de 
+    laatste 6 maanden van het jaar
+    Voeg deze samen in een nieuwe array genaamd totaleJaar
+    */
+
+    let semester1 = ["januari", "februari", "maart", "april", "mei", "juni"];
+    let semester2 = ["juli", "augustus", "september", "oktober", "november", "december"];
+
+    let totalJaar = semester1.concat(semester2);
+    console.log(totalJaar);
+
+
+
+    //** slice()
+
+    //Maak een nieuwe array aan genaamd zomer 
+    //Vul deze met de maanden juni, juli en augustus uit 
+    //totaleJaar via slice
+
+    let zommer = totalJaar.slice(5, 8);
+    console.log(zommer);
+
+
+    //** map()
+    /** Met for lus
+     
+    Maak een nieuwe array aan : totaleJaarEnJaartal
+    Via map voeg je aan elke maand uit totaleJaar een 
+    spatie en het huidige jaartal toe bv. januari 2025 */
+
+    let totaleJaarEnJaartal = totalJaar.map(function (maand) {
+        return maand + "2025";
+    });
+    console.log(totaleJaarEnJaartal);
+
+
+    //** splice()
+
+    let maandenMetEenR = totalJaar.slice();
+    maandenMetEenR.splice(4, 4);
+    console.log(`maandenMetEenR: ${maandenMetEenR}`);
+
+
+
+    //** push() pop() shift() unshift()
+
+    /*Verwijder januari en december uit totaleJaar
+    Voeg deze dan terug toe aan de array*/
+
+    totalJaar.pop();
+    totalJaar.push("december");
+    totalJaar.shift();
+    totalJaar.unshift("januari");
+    console.log(totalJaar);
+
+
+    //** Twee dimensionale array
+
+    function kortMaandenAf(afgekort, langeNaam) {
+        console.log(afgekort);
+        console.log(`langeNaam: ${langeNaam}`);
+        return afgekort.concat(langeNaam.substring(0, 3))
+    }
+
+    let afgekortMaanden = totalJaar.reduce(kortMaandenAf, []);
+    console.log(afgekortMaanden);
+
+</script>
+
+</html>
