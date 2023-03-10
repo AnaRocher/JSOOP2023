@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+	<meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		html,
+		body {
+			height: 100%;
+		}
+
+		#hex {
+			color: white;
+			font: 64px/64px Verdana;
+			height: 64px;
+			/*Vertical center*/
+			position: relative;
+			top: 50%;
+			margin-top: -32px;
+			/*Horizontal center*/
+			text-align: center;
+		}
+	</style>
+</head>
+
+<body>
+	<div id="hex"></div>
+	<label>Dag: <input id="dag" size="2"></label>
+	<label>Maand: <input id="maand" size="2"></label>
+	<label>Jaartal: <input id="jaartal" size="2"></label>
+	<input type="button" id="myBtn" value="Toon de kleur van je geboorte">
+
+	<script type="text/javascript">
+		"use strict";
+
+		let docBody, hex;
+
+		window.addEventListener("DOMContentLoaded", function () {
+
+			let geboortekleur = {
+				dag: "",
+				maand: "",
+				jaartal: "",
+				toonkleur: function () {
+					let kleur = "#" + this.dag + this.maand + this.jaartal;
+					hex = document.getElementById("hex");
+					document.body.style.backgroundColor = kleur;
+					hex.innerHTML = kleur;
+				}
+			};
+
+			document.getElementById("myBtn").addEventListener("click", displayGeboortekleur);
+
+			function displayGeboortekleur() {
+				let dagInput = document.getElementById("dag").value;
+				let maandInput = document.getElementById("maand").value;
+				let jaartalInput = document.getElementById("jaartal").value;
+
+				function checkSingle(digit) {
+					if (digit.length == 1) {
+						digit = `0${digit}`
+					}
+					return digit
+				};
+
+				dagInput = checkSingle(dagInput);
+				maandInput = checkSingle(maandInput);
+				jaartalInput = checkSingle(jaartalInput);
+
+				geboortekleur.dag = dagInput;
+				geboortekleur.maand = maandInput;
+				geboortekleur.jaartal = jaartalInput;
+
+				geboortekleur.toonkleur();
+			};
+		});
+
+		//When the button is clicked, the displayGeboortekleur color function is executed.
+		//Here you set the value of the object to the values ​​from the inputs.
+		//Check whether there is only 1 digit in it and then adjust it. No other checks necessary.
+		//Then you call the toonKleur method.
+
+
+	</script>
+</body>
+
+</html>

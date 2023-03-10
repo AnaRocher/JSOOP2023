@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+
+    <script>
+        "use strict";
+        //Garf the kat (ES5)
+
+        var garfDeKat = {
+            leeftijd: 8,
+            kleur: 'grijs',
+            meow: function () {
+                console.log('meowww');
+            },
+            eet(eten) {
+                console.log(`Yum, ik hou van ${eten}`);
+            },
+            slapen(aantalMinuten) {
+                for (let i = 0; i < aantalMinuten; i++) {
+                    console.log(`Ik slaap al ${i}  minuten`);
+                }
+                console.log('Wakker.... meowww!')
+            }
+
+
+            //de notatie is dus wat anders dan bij een gewone function
+        };
+        //De method uitvoeren:
+        garfDeKat.meow();
+        garfDeKat.eet('kattebrokjes');
+        garfDeKat.slapen(10);
+
+    </script>
+
+</body>
+
+</html>
