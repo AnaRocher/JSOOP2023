@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+
+<body>
+
+
+    <script>
+        function Car(type, model, color) {
+            this.carType = type;
+            this.carModel = model;
+            this.carColor = color;
+        };
+
+        let myCar = new Car("Fiat", "500", "White");
+        //checken of het werkt:
+        console.log(myCar);
+
+        let myVolvo = new Car("Volvo", "v90", "black");
+        console.log(myVolvo);
+
+        //instantie aanpassen
+        myVolvo.carModel = "V80";
+        console.log(myVolvo.carModel)
+
+        //controleren of een object een instantie is van bepaalde constructor functie
+        console.log(`myCar instanceof Car:  ${myCar instanceof Car}`);
+
+
+
+    </script>
+
+</body>
+
+</html>

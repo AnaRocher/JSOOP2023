@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+
+<body>
+
+
+    <script>
+        /*
+        // ontvangen variabelen worden bewaard in nieuwe instantie, via this
+
+        function Hond(naam, ras) {
+            this.naam = naam;
+            this.ras = ras;
+        }
+
+        //instantie maken
+        let snoopy = new Hond("Snoopy", "Beagle");
+
+        //checken of het werkt:
+
+        console.log(snoopy) */
+
+        //methode blaf toevoegen
+
+        function Hond(naam, ras, geluid) {
+            this.naam = naam;
+            this.ras = ras;
+            this.geluid = geluid;
+            this.blaf = function () {
+                console.log(this.geluid);
+            }
+
+        }
+        let snoopy = new Hond("Snoopy", "Beagle", "woef woef");
+        console.log(snoopy)
+
+        //method opgeroepen
+        snoopy.blaf();
+
+        //nieuw hond
+        let amber = new Hond("Amber", "Chihuahua", "wif wif");
+        amber.blaf();
+
+
+
+    </script>
+
+</body>
+
+</html>

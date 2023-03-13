@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+
+<body>
+
+
+    <script>
+
+        //We gaan al de hond objecten bijhouden in een array
+
+        let alleHonden = [];
+
+        //De constructor functie en het aanmaken van de instanties blijft identiek. Enkel gaan we als een instantie aangemaakt is, deze in de array pushen
+
+        function Hond(naam, ras, geluid) {
+            this.naam = naam;
+            this.ras = ras;
+            this.geluid = geluid;
+            this.blaf = function () {
+                console.log(this.geluid);
+            }
+        }
+
+        let snoopy = new Hond("Snoopy", "Beagle", "woef-woef");
+        alleHonden.push(snoopy);
+
+        let amber = new Hond("Amber", "Chihuahua", "wif wif");
+        alleHonden.push(amber);
+
+        //We kunnen nu een object aanspreken door een plaats in de array op te geven.
+        //En vervolgens voor dat object de blaf method oproepen
+
+        alleHonden[0].blaf();
+
+    </script>
+
+</body>
+
+</html>

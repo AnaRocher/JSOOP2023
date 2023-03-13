@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style></style>
+</head>
+
+<body>
+
+
+    <script>
+
+        //primitieve data types bevatten hun data
+
+        let naam1 = "Jan";
+        let naam2 = naam1;
+        console.log(`let naam1= ${naam1}, en naam2= ${naam2}`);
+
+        // naam1 = Jan, en naam2 = Jan
+
+        naam1 = "Piet";
+        console.log(`naam1= ${naam1}, en naam2= ${naam2}`);
+
+        // naam1 = Piet, en naam2 = Jan
+
+
+        // **Objecten refereren naar data
+        let persoon1 = {
+            naam: "Jan"
+        };
+        let persoon2 = persoon1;
+        console.log(`object persoon1.naam= ${persoon1.naam}, en persoon2.naam= ${persoon2.naam}`);
+
+        //persoon1.naam = Jan, en persoon2.naam = Jan
+
+        persoon1.naam = "Piet";
+        console.log(`persoon1.naam= ${persoon1.naam}, en persoon2.naam= ${persoon2.naam}`);
+
+       // persoon1.naam = Piet, en persoon2.naam = Piet
+
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> </style>
+</head>
+
+<body>
+
+    <form id="myForm">
+        R: <input type="text" id="kleurRIn" maxlength="3" size="3" />
+        G: <input type="text" id="kleurGIn" maxlength="3" size="3" />
+        B: <input type="text" id="kleurBIn" maxlength="3" size="3" />
+        <input type="button" id="bereken" value="Bereken de kleur" />
+        <input type="text" id="hexWaardeOut">
+    </form>
+
+    <div id="hexColor"></div>
+
+
+    <script>
+        "use strict"
+
+        window.addEventListener("DOMContentLoaded", function () {
+
+            function KleurHex(r, g, b) {
+                this.r = r;
+                this.g = g;
+                this.b = b;
+
+                this.hexString = function () {
+                    let hexR = number(this.r);
+                    let hexG = number(this.g);
+                    let hexB = number(this.b);
+                    return `#${hexR}${hexG}${hexB}`;
+                };
+            }
+            let roodInput = document.getElementById("kleurRIn");
+            let groenInput = document.getElementById("kleurGIn");
+            let blauwInput = document.getElementById("kleurBIn");
+            let button = document.getElementById("bereken");
+            button.addEventListener("click", berekenKleur);
+
+            function berekenKleur() {
+                let roodValue = parseInt(roodInput.value.toString(16));
+                let groenValue = parseInt(groenInput.value.toString(16));
+                let blauwValue = parseInt(blauwInput.value.toString(16));
+
+                let kleur = new KleurHex(roodValue, groenValue, blauwValue);
+                let mijnKleurHex = kleur.hexString();
+
+                document.body.style.backgroundColor = mijnKleurHex;
+                let hexWaardeOut = document.getElementById("hexWaardeOut");
+                hexWaardeOut.value = mijnKleurHex.toUpperCase();
+            }
+
+            function number(value) {
+                if (value < 10) {
+                    return "0" + value.toString(16);
+                } else {
+                    return value.toString(16);
+                }
+            }
+        });
+
+    </script>
+
+</body>
+
+</html>

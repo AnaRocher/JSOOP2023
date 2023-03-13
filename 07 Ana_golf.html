@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> </style>
+</head>
+
+<body>
+    <script>
+
+        let alleResultaten = [];
+
+        function Resultaat(golfbaan, datum, hole, par, strokes) {
+            this.golfbaan = golfbaan;
+            this.datum = datum;
+            this.hole = hole;
+            this.par = par;
+            this.strokes = strokes;
+            this.score = '';
+
+
+            this.setScore = function () {
+                if (this.strokes === 1) {
+                    this.score = 'Hole-in-One!';
+                } else if (this.strokes <= this.par - 2) {
+                    this.score = 'Eagle';
+                } else if (this.strokes <= this.par - 1) {
+                    this.score = 'Birdie';
+                } else if (this.strokes === this.par) {
+                    this.score = 'Par';
+                } else if (this.strokes === this.par + 1) {
+                    this.score = 'Bogey';
+                } else if (this.strokes === this.par + 2) {
+                    this.score = 'Double Bogey';
+                } else {
+                    this.score = 'Geen Score';
+                }
+            };
+
+            this.save = function () {
+                alleResultaten.push(this);
+            };
+            this.setScore();
+            this.save();
+        }
+
+        let resultaat1 = new Resultaat('Groene Weide', '01/01/2020', 1, 10, 13);
+        let resultaat2 = new Resultaat('Groene Weide', '01/01/2020', 2, 12, 12);
+        let resultaat3 = new Resultaat("Konings Hooi", '08/01/2020', 3, 12, 1);
+
+        function show() {
+            for (let i = 0; i < alleResultaten.length; i++) {
+                document.write('<p>Golfbaan: ' + alleResultaten[i].golfbaan + '</p>');
+                document.write('<p>Datum: ' + alleResultaten[i].datum + '</p>');
+                document.write('<p>Hole: ' + alleResultaten[i].hole + '</p>');
+                document.write('<p>Par: ' + alleResultaten[i].par + '</p>');
+                document.write('<p>Strokes: ' + alleResultaten[i].strokes + '</p>');
+                document.write('<p>Score: ' + alleResultaten[i].score + '</p><hr>');
+            }
+        }
+
+        show();
+    </script>
+
+
+</body>
+
+</html>
